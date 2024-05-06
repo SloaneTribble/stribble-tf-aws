@@ -49,7 +49,18 @@ module "ec2_instance" {
   subnet_id              = module.vpc.private_subnets[0]
 
   tags = {
-    Terraform   = "true"
-    Environment = "sandbox"
+    Terraform            = "true"
+    Environment          = "sandbox"
+    Application          = "stribble-modules-exercise"
+    Owner                = "stribble"
+    Project              = "dob"
+    Automation-Candidate = "true"
+    Client               = "internal"
   }
+}
+
+module "website_s3_bucket" {
+  source = "./modules/s3-bucket"
+
+  bucket_name = "stribble-tf-module-bucket"
 }
