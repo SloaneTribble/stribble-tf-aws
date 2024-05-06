@@ -43,7 +43,7 @@ module "ec2_instance" {
   count = 1
   name  = "my-ec2-cluster-${count.index}"
 
-  ami                    = "ami-0c5204531f799e0c6"
+  ami                    = "ami-04e5276ebb8451442"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [module.vpc.default_security_group_id]
   subnet_id              = module.vpc.private_subnets[0]
